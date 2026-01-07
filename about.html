@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!-- =========================================================
+     GREENLIVING STORE — About Us
+     Technologies: HTML5, CSS3, JavaScript
+     Notes:
+     - Proper tag nesting and semantic elements are used.
+     - External CSS: css/main.css
+     - Internal CSS: page-specific tweaks inside <style> block
+     - Inline CSS: used sparingly for a one-off element on the page
+     ========================================================= -->
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO / descriptive metadata -->
+  <title>GreenLiving Store — About Us</title>
+  <meta name="description" content="Team portfolios: skills, education, volunteering, certifications, and experience.">
+  <meta name="author" content="Student Group">
+
+  <!-- External CSS (site-wide styling) -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- ===================== SITE HEADER + NAV ===================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Go to Home page">
+        <img src="images/logo.svg" alt="GreenLiving Store logo">
+        <strong>GreenLiving</strong>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <!-- data-page helps JavaScript highlight the current page -->
+          <li><a href="index.html" data-page="index.html">Home</a></li>
+          <li><a href="products.html" data-page="products.html">Products</a></li>
+          <li><a href="blog.html" data-page="blog.html">Blog</a></li>
+          <li><a href="research.html" data-page="research.html">Research</a></li>
+          <li><a href="about.html" data-page="about.html">About Us</a></li>
+          <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+
+          <!-- Theme toggle + cart badge show dynamic JavaScript behavior -->
+          <li><button class="btn" id="themeToggle" aria-pressed="false" type="button">Toggle theme</button></li>
+          <li>
+            <span class="chip" aria-label="Cart items">
+              🛒 Cart: <span id="cartCount">0</span>
+            </span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 1.5rem 0;">
+    <h1>About Us</h1>
+    <p class="muted">
+      The About Us section contains detailed portfolios of each group member. Replace the placeholders with your real details.
+    </p>
+
+    <!-- Internal CSS: portfolio card layout -->
+    <style>
+      /* About page: portfolio images as circles for a clean look */
+      .pfp { width: 110px; height: 110px; border-radius: 999px; border: 1px solid #e5e7eb; object-fit: cover; }
+      .pilllist { display:flex; flex-wrap:wrap; gap:0.4rem; margin:0.35rem 0 0; padding:0; list-style:none; }
+      .pilllist li { padding:0.25rem 0.55rem; border:1px solid #e5e7eb; border-radius:999px; font-size:0.85rem; }
+    </style>
+
+    <section class="grid grid-3">
+      <!-- Member 1 -->
+      <article class="card">
+        <img class="pfp" src="images/team_1.jpg" alt="Team member 1 photo placeholder">
+        <h2 style="margin-bottom:0;">Member 1: Full Name</h2>
+        <p class="muted" style="margin-top:0.2rem;">Role: Front-end Developer / Designer</p>
+
+        <h3>Technical skills</h3>
+        <ul>
+          <li>HTML5 semantic layout, responsive CSS</li>
+          <li>JavaScript DOM manipulation</li>
+          <li>Basic UI/UX principles</li>
+        </ul>
+
+        <h3>Soft skills</h3>
+        <ul>
+          <li>Communication</li>
+          <li>Team collaboration</li>
+          <li>Time management</li>
+        </ul>
+
+        <h3>Education</h3>
+        <p class="muted">BSc (Hons) Computing — University/College Name</p>
+
+        <h3>Volunteering</h3>
+        <p class="muted">Community clean-up volunteer • Student tech club member</p>
+
+        <h3>Certifications</h3>
+        <ul class="pilllist">
+          <li>HTML Essentials</li>
+          <li>CSS Basics</li>
+          <li>Intro to JS</li>
+        </ul>
+      </article>
+
+      <!-- Member 2 -->
+      <article class="card">
+        <img class="pfp" src="images/team_2.jpg" alt="Team member 2 photo placeholder">
+        <h2 style="margin-bottom:0;">Member 2: Full Name</h2>
+        <p class="muted" style="margin-top:0.2rem;">Role: Content Writer / Researcher</p>
+
+        <h3>Technical skills</h3>
+        <ul>
+          <li>Content planning and documentation</li>
+          <li>Research and comparative analysis</li>
+          <li>Basic web publishing</li>
+        </ul>
+
+        <h3>Soft skills</h3>
+        <ul>
+          <li>Writing and storytelling</li>
+          <li>Presentation skills</li>
+          <li>Attention to detail</li>
+        </ul>
+
+        <h3>Education</h3>
+        <p class="muted">+2 / Bachelor’s — College Name</p>
+
+        <h3>Volunteering</h3>
+        <p class="muted">Volunteer teacher • Event organizer</p>
+
+        <h3>Certifications</h3>
+        <ul class="pilllist">
+          <li>Digital Literacy</li>
+          <li>Research Methods</li>
+          <li>Presentation</li>
+        </ul>
+      </article>
+
+      <!-- Member 3 -->
+      <article class="card">
+        <img class="pfp" src="images/team_3.jpg" alt="Team member 3 photo placeholder">
+        <h2 style="margin-bottom:0;">Member 3: Full Name</h2>
+        <p class="muted" style="margin-top:0.2rem;">Role: JavaScript Developer / QA</p>
+
+        <h3>Technical skills</h3>
+        <ul>
+          <li>Form validation and event handling</li>
+          <li>Testing and debugging</li>
+          <li>Accessibility basics</li>
+        </ul>
+
+        <h3>Soft skills</h3>
+        <ul>
+          <li>Problem solving</li>
+          <li>Leadership</li>
+          <li>Adaptability</li>
+        </ul>
+
+        <h3>Education</h3>
+        <p class="muted">Bachelor’s — University Name</p>
+
+        <h3>Volunteering</h3>
+        <p class="muted">Open-source contributor • Local NGO support</p>
+
+        <h3>Certifications</h3>
+        <ul class="pilllist">
+          <li>JavaScript Foundations</li>
+          <li>Web Accessibility</li>
+          <li>Git Basics</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:1.25rem;">
+      <h2>Our mission</h2>
+      <p class="muted">
+        We aim to encourage sustainable habits through simple, affordable product choices and good information.
+        This demo website focuses on clean structure, consistent navigation, and basic JavaScript interactivity.
+      </p>
+    </section>
+  </main>
+  <!-- ===================== SITE FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>
+        <div class="small"><strong>GreenLiving Store</strong> — sustainable lifestyle products for everyday use.</div>
+        <div class="small">Demo website for coursework (HTML5/CSS3/JS).</div>
+      </div>
+      <div class="small">
+        <div>© 2026 GreenLiving (Demo)</div>
+        <div class="muted">Made with ♻️ in Nepal</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

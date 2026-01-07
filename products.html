@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!-- =========================================================
+     GREENLIVING STORE — Products
+     Technologies: HTML5, CSS3, JavaScript
+     Notes:
+     - Proper tag nesting and semantic elements are used.
+     - External CSS: css/main.css
+     - Internal CSS: page-specific tweaks inside <style> block
+     - Inline CSS: used sparingly for a one-off element on the page
+     ========================================================= -->
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO / descriptive metadata -->
+  <title>GreenLiving Store — Products</title>
+  <meta name="description" content="Browse sustainable lifestyle products with prices, discounts, and details.">
+  <meta name="author" content="Student Group">
+
+  <!-- External CSS (site-wide styling) -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- ===================== SITE HEADER + NAV ===================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Go to Home page">
+        <img src="images/logo.svg" alt="GreenLiving Store logo">
+        <strong>GreenLiving</strong>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <!-- data-page helps JavaScript highlight the current page -->
+          <li><a href="index.html" data-page="index.html">Home</a></li>
+          <li><a href="products.html" data-page="products.html">Products</a></li>
+          <li><a href="blog.html" data-page="blog.html">Blog</a></li>
+          <li><a href="research.html" data-page="research.html">Research</a></li>
+          <li><a href="about.html" data-page="about.html">About Us</a></li>
+          <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+
+          <!-- Theme toggle + cart badge show dynamic JavaScript behavior -->
+          <li><button class="btn" id="themeToggle" aria-pressed="false" type="button">Toggle theme</button></li>
+          <li>
+            <span class="chip" aria-label="Cart items">
+              🛒 Cart: <span id="cartCount">0</span>
+            </span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 1.5rem 0;">
+    <h1>Products</h1>
+    <p class="muted">
+      Below are sample products with discounted and actual prices, descriptions, tags, and “Add to Cart” buttons.
+      (This is a front-end demo; no payment processing.)
+    </p>
+
+    <!-- Internal CSS: only for products page filter bar and badges -->
+    <style>
+      /* Products page: filter bar styling (page-specific UI) */
+      .filter-bar { display:flex; gap:0.6rem; flex-wrap:wrap; align-items:center; margin: 0.75rem 0 1rem; }
+      .badge { font-size:0.82rem; padding:0.2rem 0.5rem; border-radius: 999px; border: 1px solid #e5e7eb; }
+      .badge.hot { border-color:#fecaca; background:#fef2f2; color:#991b1b; }
+    </style>
+
+    <!-- Filter UI (demonstration; JS not required here but it could be extended) -->
+    <div class="filter-bar card" aria-label="Product filters">
+      <span class="badge hot">Hot Deals</span>
+      <span class="muted">Tip: click “View” to jump to an anchored product section.</span>
+    </div>
+
+    <!-- Products list uses semantic articles; ids match JS data for anchor links -->
+    <section class="grid grid-3">
+      <article class="card product" id="bamboo-toothbrush">
+        <img src="images/product_bamboo_toothbrush.jpg" alt="Bamboo toothbrush product image">
+        <div class="chip">Plastic-free • Bathroom</div>
+        <h2 style="margin:0;">Bamboo Toothbrush (Pack of 4)</h2>
+        <div class="price-row">
+          <span class="price-now">NPR 399</span>
+          <span class="price-was">NPR 550</span>
+          <span class="muted">(Save NPR 151)</span>
+        </div>
+        <p class="muted">
+          Bamboo handle is biodegradable, while soft bristles are designed for everyday use.
+          A simple switch that reduces plastic waste.
+        </p>
+        <ul class="muted">
+          <li>Material: bamboo handle</li>
+          <li>Recommended replacement: every 2–3 months</li>
+          <li>Packaging: recycled cardboard</li>
+        </ul>
+        <div class="product-actions">
+          <button class="btn primary" data-add-to-cart="true" type="button">Add to Cart</button>
+          <a class="btn" href="contact.html">Ask about stock</a>
+        </div>
+      </article>
+
+      <article class="card product" id="reusable-bottle">
+        <img src="images/product_reusable_bottle.jpg" alt="Reusable bottle product image">
+        <div class="chip">Reusable • Travel</div>
+        <h2 style="margin:0;">Insulated Reusable Bottle (750ml)</h2>
+        <div class="price-row">
+          <span class="price-now">NPR 1,299</span>
+          <span class="price-was">NPR 1,599</span>
+          <span class="muted">(Save NPR 300)</span>
+        </div>
+        <p class="muted">
+          Double-wall insulation keeps drinks cold for 24 hours and hot for 12 hours.
+          Great for work, school, and hiking.
+        </p>
+        <div class="product-actions">
+          <button class="btn primary" data-add-to-cart="true" type="button">Add to Cart</button>
+          <a class="btn" href="blog.html">Read why reusables matter</a>
+        </div>
+      </article>
+
+      <article class="card product" id="compostable-sponges">
+        <img src="images/product_sponges.jpg" alt="Compostable sponges product image">
+        <div class="chip">Kitchen • Low-waste</div>
+        <h2 style="margin:0;">Compostable Kitchen Sponges</h2>
+        <div class="price-row">
+          <span class="price-now">NPR 499</span>
+          <span class="price-was">NPR 650</span>
+          <span class="muted">(Save NPR 151)</span>
+        </div>
+        <p class="muted">
+          A washable, durable sponge made from cellulose and coconut fiber.
+          When it’s worn out, you can compost it at home.
+        </p>
+        <div class="product-actions">
+          <button class="btn primary" data-add-to-cart="true" type="button">Add to Cart</button>
+          <a class="btn" href="research.html">See research</a>
+        </div>
+      </article>
+
+      <article class="card product" id="cotton-tote">
+        <img src="images/product_tote.jpg" alt="Cotton tote bag product image">
+        <div class="chip">Reusable • Grocery</div>
+        <h2 style="margin:0;">Organic Cotton Tote Bag</h2>
+        <div class="price-row">
+          <span class="price-now">NPR 299</span>
+          <span class="price-was">NPR 399</span>
+          <span class="muted">(Save NPR 100)</span>
+        </div>
+        <p class="muted">
+          Reinforced handle stitching and thick organic cotton fabric. Perfect for groceries and daily commute.
+        </p>
+        <div class="product-actions">
+          <button class="btn primary" data-add-to-cart="true" type="button">Add to Cart</button>
+          <a class="btn" href="about.html">Meet the team</a>
+        </div>
+      </article>
+
+      <article class="card product" id="solar-lamp">
+        <img src="images/product_solar_lamp.jpg" alt="Mini solar lamp product image">
+        <div class="chip">Energy • Home</div>
+        <h2 style="margin:0;">Mini Solar Desk Lamp</h2>
+        <div class="price-row">
+          <span class="price-now">NPR 1,899</span>
+          <span class="price-was">NPR 2,299</span>
+          <span class="muted">(Save NPR 400)</span>
+        </div>
+        <p class="muted">
+          Designed for load-shedding and power outages. USB charging + solar panel for flexibility.
+        </p>
+        <div class="product-actions">
+          <button class="btn primary" data-add-to-cart="true" type="button">Add to Cart</button>
+          <a class="btn" href="contact.html">Bulk order</a>
+        </div>
+      </article>
+
+      <article class="card product" id="beeswax-wraps">
+        <img src="images/product_beeswax.jpg" alt="Beeswax wraps product image">
+        <div class="chip">Kitchen • Reusable</div>
+        <h2 style="margin:0;">Beeswax Food Wraps (Set of 3)</h2>
+        <div class="price-row">
+          <span class="price-now">NPR 699</span>
+          <span class="price-was">NPR 899</span>
+          <span class="muted">(Save NPR 200)</span>
+        </div>
+        <p class="muted">
+          Reusable wraps that mold with the warmth of your hands.
+          Use them to wrap fruits, bread, or cover bowls.
+        </p>
+        <div class="product-actions">
+          <button class="btn primary" data-add-to-cart="true" type="button">Add to Cart</button>
+          <a class="btn" href="blog.html">See usage tips</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Demonstration of table usage (required HTML tag) -->
+    <section style="margin-top: 1.5rem;">
+      <h2>Delivery & Returns (table demo)</h2>
+      <table aria-label="Delivery and returns">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Estimated Time</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Inside Kathmandu Valley</td>
+            <td>1–2 days</td>
+            <td>Cash on delivery available (demo text)</td>
+          </tr>
+          <tr>
+            <td>Outside Valley</td>
+            <td>2–5 days</td>
+            <td>Delivery time depends on distance</td>
+          </tr>
+          <tr>
+            <td>Return Policy</td>
+            <td>7 days</td>
+            <td>Unused items only, in original packaging</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <!-- ===================== SITE FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>
+        <div class="small"><strong>GreenLiving Store</strong> — sustainable lifestyle products for everyday use.</div>
+        <div class="small">Demo website for coursework (HTML5/CSS3/JS).</div>
+      </div>
+      <div class="small">
+        <div>© 2026 GreenLiving (Demo)</div>
+        <div class="muted">Made with ♻️ in Nepal</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

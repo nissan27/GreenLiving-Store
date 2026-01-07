@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO / descriptive metadata -->
+  <title>GreenLiving Store — Home</title>
+  <meta name="description" content="Eco-friendly products and tips for a sustainable lifestyle. A demo e-commerce website.">
+  <meta name="author" content="Student Group">
+
+  <!-- External CSS (site-wide styling) -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- ===================== SITE HEADER + NAV ===================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Go to Home page">
+        <img src="images/logo.svg" alt="GreenLiving Store logo">
+        <strong>GreenLiving</strong>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <!-- data-page helps JavaScript highlight the current page -->
+          <li><a href="index.html" data-page="index.html">Home</a></li>
+          <li><a href="products.html" data-page="products.html">Products</a></li>
+          <li><a href="blog.html" data-page="blog.html">Blog</a></li>
+          <li><a href="research.html" data-page="research.html">Research</a></li>
+          <li><a href="about.html" data-page="about.html">About Us</a></li>
+          <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+
+          <!-- Theme toggle + cart badge show dynamic JavaScript behavior -->
+          <li><button class="btn" id="themeToggle" aria-pressed="false" type="button">Toggle theme</button></li>
+          <li>
+            <span class="chip" aria-label="Cart items">
+              🛒 Cart: <span id="cartCount">0</span>
+            </span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HOME HERO ===================== -->
+  <main>
+    <section class="hero">
+      <div class="container hero-card">
+        <div>
+          <div class="chip">♻️ Low-waste • Reusable • Ethical</div>
+
+          <!-- Inline CSS usage (one-off highlight badge) -->
+          <p style="margin:0.65rem 0 0; display:inline-block; padding:0.25rem 0.6rem; border-radius:999px; border:1px dashed #16a34a;">
+            New year deal: Save up to 30% on essentials
+          </p>
+
+          <h1>Make sustainable living simple.</h1>
+          <p>
+            GreenLiving Store sells practical eco-friendly products—reusables, plastic-free essentials, and
+            energy-smart items. This website demonstrates a consistent multi-page e-commerce site.
+          </p>
+
+          <div class="row">
+            <a class="btn primary" href="products.html">Browse Products</a>
+            <a class="btn" href="contact.html">Ask a Question</a>
+          </div>
+
+          <!-- Brief description of contents present on different webpages (required) -->
+          <div class="card" style="margin-top: 1rem;">
+            <h2>What’s inside this website?</h2>
+            <ul>
+              <li><strong>Products:</strong> product name, discounted & actual price, descriptions, and tags.</li>
+              <li><strong>Blog:</strong> a short demonstration of how technology impacts daily life & business.</li>
+              <li><strong>Research:</strong> comparison of our components vs. 5 reference websites.</li>
+              <li><strong>About Us:</strong> team member portfolios (skills, education, volunteering, certifications).</li>
+              <li><strong>Contact:</strong> functional form with JavaScript validation.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <img class="hero-img" src="images/hero.jpg" alt="Sustainable lifestyle hero image">
+          <div class="card" style="margin-top:1rem;">
+            <h3 style="margin-bottom:0.25rem;">Quick stats</h3>
+            <p class="muted" style="margin-top:0;">Why small changes matter:</p>
+            <div class="grid grid-2">
+              <div class="card">
+                <p class="kpi" id="kpi1">6</p>
+                <p class="muted" style="margin:0;">Featured products</p>
+              </div>
+              <div class="card">
+                <p class="kpi" id="kpi2">0</p>
+                <p class="muted" style="margin:0;">Items in your cart</p>
+              </div>
+            </div>
+            <!-- Internal JS will update kpi2 via cart badge -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FEATURED PRODUCTS (dynamic) ===================== -->
+    <section>
+      <div class="container">
+        <h2>Featured essentials (dynamic content)</h2>
+        <p class="muted">
+          These product cards are injected using JavaScript on page load to demonstrate dynamic DOM updates.
+        </p>
+        <div class="grid grid-3" id="featuredProducts">
+          <!-- JS inserts product cards here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section style="margin-top:1.5rem;">
+      <div class="container grid grid-3">
+        <article class="card">
+          <h3>Plastic-free swaps</h3>
+          <p class="muted">Try bamboo toothbrushes and beeswax wraps for easy daily changes.</p>
+        </article>
+        <article class="card">
+          <h3>Reusable habits</h3>
+          <p class="muted">Bring a tote and bottle—reduce single-use waste in travel and shopping.</p>
+        </article>
+        <article class="card">
+          <h3>Energy-aware living</h3>
+          <p class="muted">Solar lamps help during outages and reduce dependency on grid power.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== INTERNAL CSS (Home-only tweak) ===================== -->
+  <style>
+    /* Home page: adjust hero list spacing (page-specific, so internal CSS is suitable) */
+    .hero ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+    .hero li { margin: 0.25rem 0; }
+  </style>
+
+  <!-- Update KPI from cart count (small page-specific script; keeps global script clean) -->
+  <script>
+    // Internal JS snippet: update KPI using the shared cart badge
+    document.addEventListener('DOMContentLoaded', function () {
+      const cart = document.getElementById('cartCount');
+      const kpi2 = document.getElementById('kpi2');
+      if (cart && kpi2) kpi2.textContent = cart.textContent;
+    });
+  </script>
+  <!-- ===================== SITE FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>
+        <div class="small"><strong>GreenLiving Store</strong> — sustainable lifestyle products for everyday use.</div>
+        <div class="small">Demo website for coursework (HTML5/CSS3/JS).</div>
+      </div>
+      <div class="small">
+        <div>© 2026 GreenLiving (Demo)</div>
+        <div class="muted">Made with ♻️ in Nepal</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

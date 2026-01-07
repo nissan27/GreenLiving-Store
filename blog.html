@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- =========================================================
+     GREENLIVING STORE — Blog
+     Technologies: HTML5, CSS3, JavaScript
+     Notes:
+     - Proper tag nesting and semantic elements are used.
+     - External CSS: css/main.css
+     - Internal CSS: page-specific tweaks inside <style> block
+     - Inline CSS: used sparingly for a one-off element on the page
+     ========================================================= -->
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO / descriptive metadata -->
+  <title>GreenLiving Store — Blog</title>
+  <meta name="description" content="How technology affects daily life and business — blog demonstration page.">
+  <meta name="author" content="Student Group">
+
+  <!-- External CSS (site-wide styling) -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- ===================== SITE HEADER + NAV ===================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Go to Home page">
+        <img src="images/logo.svg" alt="GreenLiving Store logo">
+        <strong>GreenLiving</strong>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <!-- data-page helps JavaScript highlight the current page -->
+          <li><a href="index.html" data-page="index.html">Home</a></li>
+          <li><a href="products.html" data-page="products.html">Products</a></li>
+          <li><a href="blog.html" data-page="blog.html">Blog</a></li>
+          <li><a href="research.html" data-page="research.html">Research</a></li>
+          <li><a href="about.html" data-page="about.html">About Us</a></li>
+          <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+
+          <!-- Theme toggle + cart badge show dynamic JavaScript behavior -->
+          <li><button class="btn" id="themeToggle" aria-pressed="false" type="button">Toggle theme</button></li>
+          <li>
+            <span class="chip" aria-label="Cart items">
+              🛒 Cart: <span id="cartCount">0</span>
+            </span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 1.5rem 0;">
+    <h1>Blog</h1>
+    <p class="muted">Demonstration: How technology has affected daily life and business.</p>
+
+    <!-- Internal CSS: blog typography and callout boxes -->
+    <style>
+      /* Blog page: make article content readable with better measure */
+      .article { max-width: 850px; margin: 0 auto; }
+      .callout { border-left: 6px solid #16a34a; background: #f0fdf4; padding: 0.9rem; border-radius: 0.8rem; }
+      body.dark .callout { background: #0b1220; border-left-color: #22c55e; }
+    </style>
+
+    <article class="card article">
+      <h2>Technology in daily life: convenience, choices, and responsibility</h2>
+      <p>
+        Technology has changed how we learn, communicate, and make decisions. Smartphones, online services,
+        and digital payments make everyday tasks faster—from finding transport to paying bills. At the same time,
+        the constant flow of information influences our habits, attention, and shopping behavior.
+      </p>
+
+      <div class="callout">
+        <strong>Example:</strong> A customer can compare sustainable products, read reviews, and place an order in minutes.
+        This increases convenience and transparency, but also raises concerns about data privacy and impulsive buying.
+      </div>
+
+      <h3>Technology in business: efficiency and new business models</h3>
+      <p>
+        Businesses use technology for inventory systems, customer relationship management, logistics, analytics,
+        and marketing. Small companies can compete using e-commerce platforms and social media, reaching customers
+        without needing a physical store in every location.
+      </p>
+
+      <h3>Impact on sustainable shopping</h3>
+      <ul>
+        <li><strong>Better information:</strong> customers can learn about materials and manufacturing.</li>
+        <li><strong>Lower friction:</strong> online checkout and digital wallets reduce barriers to purchase.</li>
+        <li><strong>Targeted outreach:</strong> campaigns can promote eco-friendly habits (and discounts).</li>
+        <li><strong>Risk:</strong> increased shipping can add emissions if delivery is inefficient.</li>
+      </ul>
+
+      <h3>Conclusion</h3>
+      <p>
+        Technology is not “good” or “bad” by itself. The outcomes depend on how people design systems and use them.
+        For sustainable lifestyle businesses, technology can support transparency and access—but businesses should also
+        aim for ethical data practices and eco-conscious logistics.
+      </p>
+
+      <p class="muted">
+        Tip: Visit the Products page and try the “Add to Cart” button to see JavaScript update the cart count.
+      </p>
+    </article>
+  </main>
+  <!-- ===================== SITE FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>
+        <div class="small"><strong>GreenLiving Store</strong> — sustainable lifestyle products for everyday use.</div>
+        <div class="small">Demo website for coursework (HTML5/CSS3/JS).</div>
+      </div>
+      <div class="small">
+        <div>© 2026 GreenLiving (Demo)</div>
+        <div class="muted">Made with ♻️ in Nepal</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- =========================================================
+     GREENLIVING STORE — Research
+     Technologies: HTML5, CSS3, JavaScript
+     Notes:
+     - Proper tag nesting and semantic elements are used.
+     - External CSS: css/main.css
+     - Internal CSS: page-specific tweaks inside <style> block
+     - Inline CSS: used sparingly for a one-off element on the page
+     ========================================================= -->
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO / descriptive metadata -->
+  <title>GreenLiving Store — Research</title>
+  <meta name="description" content="Research section contrasting your website components against researched websites.">
+  <meta name="author" content="Student Group">
+
+  <!-- External CSS (site-wide styling) -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- ===================== SITE HEADER + NAV ===================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Go to Home page">
+        <img src="images/logo.svg" alt="GreenLiving Store logo">
+        <strong>GreenLiving</strong>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <!-- data-page helps JavaScript highlight the current page -->
+          <li><a href="index.html" data-page="index.html">Home</a></li>
+          <li><a href="products.html" data-page="products.html">Products</a></li>
+          <li><a href="blog.html" data-page="blog.html">Blog</a></li>
+          <li><a href="research.html" data-page="research.html">Research</a></li>
+          <li><a href="about.html" data-page="about.html">About Us</a></li>
+          <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+
+          <!-- Theme toggle + cart badge show dynamic JavaScript behavior -->
+          <li><button class="btn" id="themeToggle" aria-pressed="false" type="button">Toggle theme</button></li>
+          <li>
+            <span class="chip" aria-label="Cart items">
+              🛒 Cart: <span id="cartCount">0</span>
+            </span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 1.5rem 0;">
+    <h1>Research</h1>
+    <p class="muted">
+      This section compares components used in our website against researched reference websites.
+      The focus is on “peculiar” components that other sites have more than others (e.g., advanced search, reviews, animations).
+    </p>
+
+    <!-- Internal CSS: research page notes formatting -->
+    <style>
+      /* Research page: make reference links stand out */
+      .refs a { word-break: break-word; }
+      .pill { display:inline-block; padding:0.2rem 0.55rem; border-radius:999px; border:1px solid #e5e7eb; font-size:0.85rem; }
+    </style>
+
+    <section class="card">
+      <h2>Reference websites (5+)</h2>
+      <p class="muted">These are examples of real e-commerce websites that commonly include advanced components:</p>
+      <ol class="refs">
+        <li><span class="pill">Reference 1</span> Amazon — product reviews, recommendations, “frequently bought together”</li>
+        <li><span class="pill">Reference 2</span> Daraz — filters, flash sales, category navigation, delivery tracking</li>
+        <li><span class="pill">Reference 3</span> Etsy — handcrafted marketplace, seller profiles, favorites, personalization</li>
+        <li><span class="pill">Reference 4</span> IKEA — room planners, rich product galleries, stock availability per store</li>
+        <li><span class="pill">Reference 5</span> Apple Store — high-quality product storytelling, comparisons, animations</li>
+      </ol>
+      <p class="muted">
+        Note: For coursework, you can replace these with the exact sites you investigated and add screenshots or citations as required by your teacher.
+      </p>
+    </section>
+
+    <section style="margin-top: 1.25rem;">
+      <h2>Component comparison table</h2>
+
+      <!-- Required: table tag + contrast components -->
+      <table aria-label="Research comparison table">
+        <thead>
+          <tr>
+            <th>Web Component / Feature</th>
+            <th>How our website implements it</th>
+            <th>How reference websites implement it (contrast)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Navigation & site structure</strong></td>
+            <td>
+              Consistent navbar on every page with active page highlight using JavaScript.
+              Simple structure: Home, Products, Blog, Research, About, Contact.
+            </td>
+            <td>
+              Large e-commerce sites often use mega menus with many categories, multi-level navigation,
+              account menus, and multilingual toggles.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Dynamic content</strong></td>
+            <td>
+              Home page injects featured products using JS (DOM manipulation).
+              Cart badge updates using localStorage.
+            </td>
+            <td>
+              Reference sites use personalization engines: “recommended for you”, recently viewed,
+              A/B testing, and real-time inventory updates.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Product discovery</strong></td>
+            <td>
+              Simple browsing with anchored product sections and tags.
+              (Expandable to include search and filters.)
+            </td>
+            <td>
+              Advanced filters (brand, price range sliders, ratings), full-text search with suggestions,
+              and category taxonomies.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Trust & social proof</strong></td>
+            <td>
+              Currently a demo: includes product descriptions and simple UI, but no real reviews.
+            </td>
+            <td>
+              Reviews, star ratings, Q&A, verified purchase labels, seller scores, and user-uploaded photos.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Checkout & payments</strong></td>
+            <td>
+              Demo only (front-end). “Add to cart” is stored locally; no payment gateway.
+            </td>
+            <td>
+              Secure checkout, multiple payment methods, address validation, promo codes, tax calculation,
+              and order tracking.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Performance & accessibility</strong></td>
+            <td>
+              Lightweight pages, semantic HTML, alt text on images, clear form labels,
+              focus styles, and responsive layout.
+            </td>
+            <td>
+              Many references use lazy-loading images, CDN delivery, and extensive accessibility audits;
+              sometimes heavy animations can reduce performance on low-end devices.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>What makes our site “peculiar” for an assignment?</h3>
+        <ul>
+          <li>Theme toggle (dark mode) implemented with JavaScript.</li>
+          <li>Dynamic featured products injection on the Home page.</li>
+          <li>Cart counter stored in localStorage (simple state persistence).</li>
+          <li>Client-side form validation with live error messages.</li>
+          <li>Consistent design system (cards, chips, grids) via external CSS.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <!-- ===================== SITE FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>
+        <div class="small"><strong>GreenLiving Store</strong> — sustainable lifestyle products for everyday use.</div>
+        <div class="small">Demo website for coursework (HTML5/CSS3/JS).</div>
+      </div>
+      <div class="small">
+        <div>© 2026 GreenLiving (Demo)</div>
+        <div class="muted">Made with ♻️ in Nepal</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

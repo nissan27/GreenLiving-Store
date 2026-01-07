@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!-- =========================================================
+     GREENLIVING STORE — Contact
+     Technologies: HTML5, CSS3, JavaScript
+     Notes:
+     - Proper tag nesting and semantic elements are used.
+     - External CSS: css/main.css
+     - Internal CSS: page-specific tweaks inside <style> block
+     - Inline CSS: used sparingly for a one-off element on the page
+     ========================================================= -->
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO / descriptive metadata -->
+  <title>GreenLiving Store — Contact</title>
+  <meta name="description" content="Contact us form with JavaScript validation.">
+  <meta name="author" content="Student Group">
+
+  <!-- External CSS (site-wide styling) -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- ===================== SITE HEADER + NAV ===================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Go to Home page">
+        <img src="images/logo.svg" alt="GreenLiving Store logo">
+        <strong>GreenLiving</strong>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <!-- data-page helps JavaScript highlight the current page -->
+          <li><a href="index.html" data-page="index.html">Home</a></li>
+          <li><a href="products.html" data-page="products.html">Products</a></li>
+          <li><a href="blog.html" data-page="blog.html">Blog</a></li>
+          <li><a href="research.html" data-page="research.html">Research</a></li>
+          <li><a href="about.html" data-page="about.html">About Us</a></li>
+          <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+
+          <!-- Theme toggle + cart badge show dynamic JavaScript behavior -->
+          <li><button class="btn" id="themeToggle" aria-pressed="false" type="button">Toggle theme</button></li>
+          <li>
+            <span class="chip" aria-label="Cart items">
+              🛒 Cart: <span id="cartCount">0</span>
+            </span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 1.5rem 0;">
+    <h1>Contact</h1>
+    <p class="muted">
+      This page includes a functional form (front-end demo) with JavaScript validation and dynamic success feedback.
+    </p>
+
+    <!-- Internal CSS: form layout tweaks -->
+    <style>
+      /* Contact page: group fields into two columns on larger screens */
+      .two-col { display:grid; gap:1rem; grid-template-columns: 1fr 1fr; }
+      @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+    </style>
+
+    <!-- Success message is hidden by default; JS reveals it on valid submit -->
+    <div id="formSuccess" class="success" hidden>
+      ✅ Thank you! Your message was validated and submitted in this demo.
+      (No backend is connected — this is for coursework.)
+    </div>
+
+    <!-- Required HTML tag: form (with proper nesting, labels, inputs, textarea) -->
+    <section class="card">
+      <h2>Send us a message</h2>
+      <form id="contactForm" novalidate>
+        <!-- Two-column grid for key fields -->
+        <div class="two-col">
+          <div>
+            <label for="fullName">Full Name *</label>
+            <input id="fullName" name="fullName" type="text" placeholder="e.g., Sita Sharma" required>
+            <div class="error-text" aria-live="polite"></div>
+          </div>
+
+          <div>
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" placeholder="e.g., sita@example.com" required>
+            <div class="error-text" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" placeholder="+977-98XXXXXXXX">
+            <div class="error-text" aria-live="polite"></div>
+          </div>
+
+          <div>
+            <label for="topic">Topic *</label>
+            <select id="topic" name="topic" required>
+              <option value="">-- Choose a topic --</option>
+              <option value="product">Product question</option>
+              <option value="bulk">Bulk order</option>
+              <option value="delivery">Delivery</option>
+              <option value="feedback">Feedback</option>
+            </select>
+            <div class="error-text" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div>
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+          <div class="help">Minimum 10 characters.</div>
+          <div class="error-text" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label>
+            <input id="consent" type="checkbox">
+            I agree to be contacted back. *
+          </label>
+          <div id="consentError" class="error-text" aria-live="polite"></div>
+        </div>
+
+        <div class="row">
+          <button class="btn primary" type="submit">Submit</button>
+          <button class="btn" type="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="grid grid-2" style="margin-top: 1.25rem;">
+      <div class="card">
+        <h2>Store details</h2>
+        <p class="muted">
+          Location: Kathmandu, Nepal<br>
+          Email: support@greenliving.demo<br>
+          Hours: 10:00–18:00 (Sun–Fri)
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Why validate forms?</h2>
+        <p class="muted">
+          Form validation improves user experience, reduces errors, and helps businesses capture accurate customer info.
+          In real projects, you should also validate on the server side for security.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Page-specific JS for form validation (separate file, well-commented) -->
+  <script src="js/form.js"></script>
+  <!-- ===================== SITE FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>
+        <div class="small"><strong>GreenLiving Store</strong> — sustainable lifestyle products for everyday use.</div>
+        <div class="small">Demo website for coursework (HTML5/CSS3/JS).</div>
+      </div>
+      <div class="small">
+        <div>© 2026 GreenLiving (Demo)</div>
+        <div class="muted">Made with ♻️ in Nepal</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
