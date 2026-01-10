@@ -95,7 +95,7 @@
                 <p class="muted" style="margin:0;">Items in your cart</p>
               </div>
             </div>
-            <!-- Internal JS will update kpi2 via cart badge -->
+            <!-- Simple stats shown on home page-->
           </div>
         </div>
       </div>
@@ -135,12 +135,12 @@
 
   <!-- ===================== INTERNAL CSS (Home-only tweak) ===================== -->
   <style>
-    /* Home page: adjust hero list spacing (page-specific, so internal CSS is suitable) */
+    /* messing with spacing for the hero section list*/
     .hero ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
     .hero li { margin: 0.25rem 0; }
   </style>
 
-  <!-- Update KPI from cart count (small page-specific script; keeps global script clean) -->
+  <!--Updates the little number showing how many items are in the cart -->
   <script>
     // Internal JS snippet: update KPI using the shared cart badge
     document.addEventListener('DOMContentLoaded', function () {
@@ -149,7 +149,7 @@
       if (cart && kpi2) kpi2.textContent = cart.textContent;
     });
   </script>
-  <!-- ===================== SITE FOOTER ===================== -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-row">
       <div>
