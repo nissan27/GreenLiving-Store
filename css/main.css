@@ -8,7 +8,7 @@
    - Inline CSS is used for one-off exceptions (e.g., a single badge).
    ========================================================= */
 
-/* ---------- CSS Reset / Base Typographic Rules ---------- */
+/*Basic reset and text  */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
@@ -18,7 +18,7 @@ body {
   background: #f6f7fb;
 }
 
-/* Layout helpers used for spacing, grinds and alignment */
+/* Layout helpers used for spacing, grids, and alignment */
 .container {
   width: min(1100px, calc(100% - 2rem));
   margin: 0 auto;
@@ -30,6 +30,8 @@ body {
 }
 .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* quick media tweak to manage looks on smaller screens */
 @media (max-width: 900px) {
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -61,7 +63,7 @@ header.site-header {
 }
 .brand img { width: 34px; height: 34px; }
 .brand strong { font-size: 1.05rem; letter-spacing: 0.2px; }
-
+/* nav links styling */
 nav ul {
   list-style: none;
   display: flex;
@@ -80,7 +82,7 @@ nav a {
 nav a:hover { background: #eef2ff; }
 nav a.active { background: #e0e7ff; font-weight: 600; }
 
-/* ---------- Buttons & Chips ---------- */
+/*  Buttons & little badges  */
 .btn {
   border: 1px solid #d1d5db;
   background: white;
