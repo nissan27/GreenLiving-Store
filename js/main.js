@@ -58,9 +58,9 @@ const PRODUCTS = [
   }
 ];
 
-/* ---------- Helper: Format money (NPR demo) ---------- */
+/* ---------- Format money (NPR) ---------- */
 function formatNPR(amount) {
-  // Keep it simple for an assignment: NPR 1,299
+  //  simple for understanding: NPR 1,299
   return 'NPR ' + Number(amount).toLocaleString('en-US');
 }
 
@@ -110,7 +110,7 @@ function renderFeaturedProducts() {
   const mount = document.getElementById('featuredProducts');
   if (!mount) return; // only on Home
 
-  // Pick 3 products for the home page demonstration
+  // Picking 3 products for the home page 
   const featured = PRODUCTS.slice(0, 3);
 
   const html = featured.map(p => `
