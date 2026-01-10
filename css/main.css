@@ -18,7 +18,7 @@ body {
   background: #f6f7fb;
 }
 
-/* ---------- Utility & Layout Helpers ---------- */
+/* Layout helpers used for spacing, grinds and alignment */
 .container {
   width: min(1100px, calc(100% - 2rem));
   margin: 0 auto;
@@ -37,7 +37,7 @@ body {
   .grid-3, .grid-2 { grid-template-columns: 1fr; }
 }
 
-/* ---------- Header / Navigation Bar ---------- */
+/* Styling for header and navigation bar */
 header.site-header {
   position: sticky;
   top: 0;
@@ -166,7 +166,7 @@ nav a.active { background: #e0e7ff; font-weight: 600; }
 .price-was { color: #6b7280; text-decoration: line-through; }
 .product-actions { margin-top: auto; display: flex; gap: 0.6rem; }
 
-/* ---------- Tables (Research page uses this) ---------- */
+/* ---------- Tables (Research page) ---------- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -216,8 +216,7 @@ footer.site-footer {
 footer .footer-row { display: flex; gap: 1rem; justify-content: space-between; flex-wrap: wrap; }
 .small { font-size: 0.9rem; }
 
-/* ---------- Theme Toggle (dark mode) ---------- */
-/* The .dark class is toggled on <body> using JavaScript */
+/* Dark mode applied when JS adds .dark class to body */
 body.dark { background: #0b1220; color: #e5e7eb; }
 body.dark header.site-header { background: rgba(17,24,39,0.88); border-bottom-color: #263041; }
 body.dark .card, body.dark table { background: #111827; border-color: #263041; }
