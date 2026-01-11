@@ -19,4 +19,3 @@ This folder contains a 6-page front-end website for coursework.
 ## How to run
 Open `index.html` in a browser, then navigate using the navbar.
 
-> Tip: For best results, run via a simple local server (optional), e.g., VS Code Live Server.
