@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Required meta tags -->
+  <!-- meta tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO / descriptive metadata -->
+  <!-- metadata -->
   <title>GreenLiving Store — Contact</title>
   <meta name="description" content="Contact us form with JavaScript validation.">
   <meta name="author" content="Student Group">
 
-  <!-- External CSS (site-wide styling) -->
+  <!-- external css -->
   <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-  <!--SITE HEADER + NAV-->
+  <!--header and nav-->
   <header class="site-header">
     <div class="container navbar">
       <a class="brand" href="index.html" aria-label="Go to Home page">
@@ -48,14 +48,14 @@
       This page includes a functional form (front-end demo) with JavaScript validation and dynamic success feedback.
     </p>
 
-    <!--Internal CSS-->
+    <!--internal css-->
     <style>
       /* group fields into two columns on larger screens */
       .two-col { display:grid; gap:1rem; grid-template-columns: 1fr 1fr; }
       @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
     </style>
 
-    <!-- Success message is hidden by default and JS reveals it on valid submit -->
+    <!-- Success message is revealed on valid submit -->
     <div id="formSuccess" class="success" hidden>
       ✅ Thank you! Your message was validated and submitted in this demo.
     </div>
@@ -64,7 +64,7 @@
     <section class="card">
       <h2>Send us a message</h2>
       <form id="contactForm" novalidate>
-        <!-- Two-column grid for key fields -->
+
         <div class="two-col">
           <div>
             <label for="fullName">Full Name *</label>
@@ -127,7 +127,7 @@
         <p class="muted">
           Location: Kathmandu, Nepal<br>
           Email: support@greenliving.demo<br>
-          Hours: 10:00–18:00 (Sun–Fri)
+          Hours: 10:00-18:00 (Sun-Fri)
         </p>
       </div>
 
@@ -141,9 +141,10 @@
     </section>
   </main>
 
-  <!-- Page-specific JS for form validation -->
+  <!-- page specific js -->
   <script src="../js/form.js"></script>
-  <!-- FOOTER -->
+
+  <!-- footer -->
   <footer class="site-footer">
     <div class="container footer-row">
       <div>
@@ -157,7 +158,7 @@
     </div>
   </footer>
 
-  <!-- External JavaScript -->
+  <!-- external js -->
   <script src="../js/main.js"></script>
 </body>
 </html>

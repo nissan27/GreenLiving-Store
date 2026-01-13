@@ -10,11 +10,11 @@
   <meta name="description" content="Browse sustainable lifestyle products with prices, discounts, and details.">
   <meta name="author" content="Student Group">
 
-  <!-- External CSS-->
+  <!-- external css -->
   <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-  <!-- ===================== SITE HEADER + NAV ===================== -->
+  <!-- header + nav -->
   <header class="site-header">
     <div class="container navbar">
       <a class="brand" href="index.html" aria-label="Go to Home page">
@@ -24,7 +24,6 @@
 
       <nav aria-label="Primary">
         <ul>
-          <!-- data-page helps JavaScript highlight the current page -->
           <li><a href="index.html" data-page="index.html">Home</a></li>
           <li><a href="products.html" data-page="products.html">Products</a></li>
           <li><a href="blog.html" data-page="blog.html">Blog</a></li>
@@ -32,7 +31,7 @@
           <li><a href="about.html" data-page="about.html">About Us</a></li>
           <li><a href="contact.html" data-page="contact.html">Contact</a></li>
 
-          <!-- Theme toggle + cart badge show dynamic JavaScript behavior -->
+          <!-- cart badge -->
           <li>
             <span class="chip" aria-label="Cart items">
               🛒 Cart: <span id="cartCount">0</span>
@@ -50,7 +49,7 @@
       (This is a front-end demo; no payment processing.)
     </p>
 
-    <!-- Internal CSS(for products page filter bar and badges) -->
+    <!-- internal css -->
     <style>
       /* Products page: filter bar styling (page-specific UI) */
       .filter-bar { display:flex; gap:0.6rem; flex-wrap:wrap; align-items:center; margin: 0.75rem 0 1rem; }
@@ -58,7 +57,7 @@
       .badge.hot { border-color:#fecaca; background:#fef2f2; color:#991b1b; }
     </style>
 
-    <!-- Filter UI (demonstration; JS not required here but it could be extended) -->
+    <!-- filter ui -->
     <div class="filter-bar card" aria-label="Product filters">
       <span class="badge hot">Hot Deals</span>
       <span class="muted">Tip: click “View” to jump to an anchored product section.</span>
@@ -120,7 +119,7 @@
         </div>
         <p class="muted">
           A washable, durable sponge made from cellulose and coconut fiber.
-          When it’s worn out, you can compost it at home.
+          When it's worn out, you can compost it at home.
         </p>
         <div class="product-actions">
           <button class="btn primary" data-add-to-cart="true" type="button">Add to Cart</button>
@@ -198,12 +197,12 @@
         <tbody>
           <tr>
             <td>Inside Kathmandu Valley</td>
-            <td>1–2 days</td>
+            <td>1-2 days</td>
             <td>Cash on delivery available (demo text)</td>
           </tr>
           <tr>
             <td>Outside Valley</td>
-            <td>2–5 days</td>
+            <td>2-5 days</td>
             <td>Delivery time depends on distance</td>
           </tr>
           <tr>
@@ -215,6 +214,7 @@
       </table>
     </section>
   </main>
+
   <!-- footer -->
   <footer class="site-footer">
     <div class="container footer-row">
@@ -229,7 +229,7 @@
     </div>
   </footer>
 
-  <!-- External JavaScript -->
+  <!-- external javascript -->
   <script src="../js/main.js"></script>
 </body>
 </html>
