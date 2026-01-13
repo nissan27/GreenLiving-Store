@@ -18,13 +18,12 @@
   <header class="site-header">
     <div class="container navbar">
       <a class="brand" href="index.html" aria-label="Go to Home page">
-        <img src="images/logo.svg" alt="GreenLiving Store logo">
+        <img src="../images/logo.svg" alt="GreenLiving Store logo">
         <strong>GreenLiving</strong>
       </a>
 
       <nav aria-label="Primary">
         <ul>
-          <!-- data-page helps JavaScript highlight the current page -->
           <li><a href="index.html" data-page="index.html">Home</a></li>
           <li><a href="products.html" data-page="products.html">Products</a></li>
           <li><a href="blog.html" data-page="blog.html">Blog</a></li>
@@ -32,7 +31,7 @@
           <li><a href="about.html" data-page="about.html">About Us</a></li>
           <li><a href="contact.html" data-page="contact.html">Contact</a></li>
 
-          <!-- Theme toggle + cart badge show dynamic JavaScript behavior -->
+          <!-- cart badge -->
           <li>
             <span class="chip" aria-label="Cart items">
               🛒 Cart: <span id="cartCount">0</span>
@@ -49,14 +48,14 @@
       This page includes a functional form (front-end demo) with JavaScript validation and dynamic success feedback.
     </p>
 
-    <!-- Internal CSS: form layout tweaks -->
+    <!--Internal CSS-->
     <style>
-      /* Contact page: group fields into two columns on larger screens */
+      /* group fields into two columns on larger screens */
       .two-col { display:grid; gap:1rem; grid-template-columns: 1fr 1fr; }
       @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
     </style>
 
-    <!-- Success message is hidden by default; JS reveals it on valid submit -->
+    <!-- Success message is hidden by default and JS reveals it on valid submit -->
     <div id="formSuccess" class="success" hidden>
       ✅ Thank you! Your message was validated and submitted in this demo.
     </div>
@@ -142,17 +141,17 @@
     </section>
   </main>
 
-  <!-- Page-specific JS for form validation (separate file, well-commented) -->
+  <!-- Page-specific JS for form validation -->
   <script src="../js/form.js"></script>
-  <!-- SITE FOOTER -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-row">
       <div>
         <div class="small"><strong>GreenLiving Store</strong> — sustainable lifestyle products for everyday use.</div>
-        <div class="small">Demo website for coursework (HTML5/CSS3/JS).</div>
+        <div class="small">Static website for Information System (HTML5/CSS3/JS).</div>
       </div>
       <div class="small">
-        <div>© 2026 GreenLiving (Demo)</div>
+        <div>© 2026 GreenLiving</div>
         <div class="muted">Made with ♻️ in Nepal</div>
       </div>
     </div>
