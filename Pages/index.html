@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta tags for responsiveness and basic SEO -->
+  <!--meta tags-->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO / descriptive metadata -->
+  <!--metadata -->
   <title>GreenLiving Store — Home</title>
   <meta name="description" content="Eco-friendly products and tips for a sustainable lifestyle. A demo e-commerce website.">
   <meta name="author" content="Student Group">
 
-  <!-- Main CSS file used across all pages -->
+  <!-- external css -->
   <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-  <!-- Header section with logo and navigation links-->
+  <!-- navigation link and logo-->
   <header class="site-header">
     <div class="container navbar">
       <a class="brand" href="index.html" aria-label="Go to Home page">
-        <img src="images/logo.svg" alt="GreenLiving Store logo">
+        <img src="../images/logo.svg" alt="GreenLiving Store logo">
         <strong>GreenLiving</strong>
       </a>
 
@@ -32,8 +32,7 @@
           <li><a href="about.html" data-page="about.html">About Us</a></li>
           <li><a href="contact.html" data-page="contact.html">Contact</a></li>
 
-          <!-- Theme toggle button and cart count (using JS) -->
-          <li><button class="btn" id="themeToggle" aria-pressed="false" type="button">Toggle theme</button></li>
+          <!-- cart and cart-count -->
           <li>
             <span class="chip" aria-label="Cart items">
               🛒 Cart: <span id="cartCount">0</span>
@@ -81,7 +80,7 @@
         </div>
 
         <div>
-          <img class="hero-img" src="images/hero.jpg" alt="Sustainable lifestyle hero image">
+          <img class="hero-img" src="../images/hero.jpg" alt="Sustainable lifestyle hero image">
           <div class="card" style="margin-top:1rem;">
             <h3 style="margin-bottom:0.25rem;">Quick stats</h3>
             <p class="muted" style="margin-top:0;">Why small changes matter:</p>
@@ -101,7 +100,7 @@
       </div>
     </section>
 
-    <!-- = FEATURED PRODUCTS (dynamic)-->
+    <!-- featured products-->
     <section>
       <div class="container">
         <h2>Featured essentials (dynamic content)</h2>
@@ -133,7 +132,7 @@
     </section>
   </main>
 
-  <!-- ===================== INTERNAL CSS (Home-only tweak) ===================== -->
+  <!-- Internal Css -->
   <style>
     /* messing with spacing for the hero section list*/
     .hero ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }

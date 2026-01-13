@@ -64,23 +64,6 @@ function formatNPR(amount) {
   return 'NPR ' + Number(amount).toLocaleString('en-US');
 }
 
-/* ---------- Theme Toggle ---------- */
-function setupThemeToggle() {
-  const btn = document.getElementById('themeToggle');
-  if (!btn) return;
-
-  // Persist user preference
-  const saved = localStorage.getItem('gl_theme');
-  if (saved === 'dark') document.body.classList.add('dark');
-
-  btn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    localStorage.setItem('gl_theme', isDark ? 'dark' : 'light');
-    btn.setAttribute('aria-pressed', String(isDark));
-  });
-}
-
 /* ---------- Cart Counter Demo ---------- */
 function getCartCount() {
   return Number(localStorage.getItem('gl_cart_count') || '0');

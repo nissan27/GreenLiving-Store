@@ -1,11 +1,3 @@
-/* =========================================================
-   GREENLIVING STORE — Form Validation
-   File: js/form.js
-   Purpose:
-   - Client-side validation for the Contact/Order form
-   - Demonstrates JavaScript DOM manipulation and validation logic
-   ========================================================= */
-
 'use strict';
 
 /* ---------- Validation Helpers ---------- */
