@@ -9,7 +9,7 @@ const PRODUCTS = [
     priceWas: 550,
     short: 'Plant-based bristles + biodegradable bamboo handle.',
     tags: ['Plastic-free', 'Bathroom'],
-    image: 'images/product_bamboo_toothbrush.jpg'
+    image: '../images/product_bamboo_toothbrush.jpg'
   },
   {
     id: 'reusable-bottle',
@@ -18,7 +18,7 @@ const PRODUCTS = [
     priceWas: 1599,
     short: 'Keeps drinks cold for 24h and hot for 12h.',
     tags: ['Reusable', 'Travel'],
-    image: 'images/product_reusable_bottle.jpg'
+    image: '../images/product_reusable_bottle.jpg'
   },
   {
     id: 'compostable-sponges',
@@ -27,7 +27,7 @@ const PRODUCTS = [
     priceWas: 650,
     short: 'Cellulose + coconut fiber—home-compostable.',
     tags: ['Kitchen', 'Low-waste'],
-    image: 'images/product_sponges.jpg'
+    image: '../images/product_sponges.jpg'
   },
   {
     id: 'cotton-tote',
@@ -36,7 +36,7 @@ const PRODUCTS = [
     priceWas: 399,
     short: 'Durable daily carry with reinforced stitching.',
     tags: ['Reusable', 'Grocery'],
-    image: 'images/product_tote.jpg'
+    image: '../images/product_tote.jpg'
   },
   {
     id: 'solar-lamp',
@@ -45,7 +45,7 @@ const PRODUCTS = [
     priceWas: 2299,
     short: 'USB + solar charging for power outages and study.',
     tags: ['Energy', 'Home'],
-    image: 'images/product_solar_lamp.jpg'
+    image: '../images/product_solar_lamp.jpg'
   },
   {
     id: 'beeswax-wraps',
@@ -54,7 +54,7 @@ const PRODUCTS = [
     priceWas: 899,
     short: 'A natural alternative to single-use cling film.',
     tags: ['Kitchen', 'Reusable'],
-    image: 'images/product_beeswax.jpg'
+    image: '../images/product_beeswax.jpg'
   }
 ];
 
@@ -62,6 +62,23 @@ const PRODUCTS = [
 function formatNPR(amount) {
   //  simple for understanding: NPR 1,299
   return 'NPR ' + Number(amount).toLocaleString('en-US');
+}
+
+/* ---------- Theme Toggle ---------- */
+function setupThemeToggle() {
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+
+  // Persist user preference
+  const saved = localStorage.getItem('gl_theme');
+  if (saved === 'dark') document.body.classList.add('dark');
+
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    localStorage.setItem('gl_theme', isDark ? 'dark' : 'light');
+    btn.setAttribute('aria-pressed', String(isDark));
+  });
 }
 
 /* ---------- Cart Counter Demo ---------- */
