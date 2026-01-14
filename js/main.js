@@ -1,151 +1,136 @@
-'use strict';
+"use strict";
 
-/* ---------- Data Model for Products (used across pages) ---------- */
+//product data
 const PRODUCTS = [
   {
-    id: 'bamboo-toothbrush',
-    name: 'Bamboo Toothbrush (Pack of 4)',
+    id: "bamboo-toothbrush",
+    name: "Bamboo Toothbrush (Pack of 4)",
     priceNow: 399,
     priceWas: 550,
-    short: 'Plant-based bristles + biodegradable bamboo handle.',
-    tags: ['Plastic-free', 'Bathroom'],
-    image: '../images/product_bamboo_toothbrush.jpg'
+    short: "Plant-based bristles + biodegradable bamboo handle.",
+    tags: ["Plastic-free", "Bathroom"],
+    image: "../images/product_bamboo_toothbrush.jpg",
   },
   {
-    id: 'reusable-bottle',
-    name: 'Insulated Reusable Bottle (750ml)',
+    id: "reusable-bottle",
+    name: "Insulated Reusable Bottle (750ml)",
     priceNow: 1299,
     priceWas: 1599,
-    short: 'Keeps drinks cold for 24h and hot for 12h.',
-    tags: ['Reusable', 'Travel'],
-    image: '../images/product_reusable_bottle.jpg'
+    short: "Keeps drinks cold for 24h and hot for 12h.",
+    tags: ["Reusable", "Travel"],
+    image: "../images/product_reusable_bottle.jpg",
   },
   {
-    id: 'compostable-sponges',
-    name: 'Compostable Kitchen Sponges',
+    id: "compostable-sponges",
+    name: "Compostable Kitchen Sponges",
     priceNow: 499,
     priceWas: 650,
-    short: 'Cellulose + coconut fiber—home-compostable.',
-    tags: ['Kitchen', 'Low-waste'],
-    image: '../images/product_sponges.jpg'
+    short: "Cellulose + coconut fiber—home-compostable.",
+    tags: ["Kitchen", "Low-waste"],
+    image: "../images/product_sponges.jpg",
   },
-  {
-    id: 'cotton-tote',
-    name: 'Organic Cotton Tote Bag',
-    priceNow: 299,
-    priceWas: 399,
-    short: 'Durable daily carry with reinforced stitching.',
-    tags: ['Reusable', 'Grocery'],
-    image: '../images/product_tote.jpg'
-  },
-  {
-    id: 'solar-lamp',
-    name: 'Mini Solar Desk Lamp',
-    priceNow: 1899,
-    priceWas: 2299,
-    short: 'USB + solar charging for power outages and study.',
-    tags: ['Energy', 'Home'],
-    image: '../images/product_solar_lamp.jpg'
-  },
-  {
-    id: 'beeswax-wraps',
-    name: 'Beeswax Food Wraps (Set of 3)',
-    priceNow: 699,
-    priceWas: 899,
-    short: 'A natural alternative to single-use cling film.',
-    tags: ['Kitchen', 'Reusable'],
-    image: '../images/product_beeswax.jpg'
-  }
 ];
 
-/* ---------- Format money (NPR) ---------- */
+//helper functions
 function formatNPR(amount) {
-  //  simple for understanding: NPR 1,299
-  return 'NPR ' + Number(amount).toLocaleString('en-US');
+  return "NPR " + Number(amount).toLocaleString("en-US");
 }
 
-/* ---------- Theme Toggle ---------- */
-function setupThemeToggle() {
-  const btn = document.getElementById('themeToggle');
-  if (!btn) return;
+function $(selector) {
+  // shorthand helper for selecting one element
+  return document.querySelector(selector);
+}
 
-  // Persist user preference
-  const saved = localStorage.getItem('gl_theme');
-  if (saved === 'dark') document.body.classList.add('dark');
+function $all(selector) {
+  // shorthand helper for selecting multiple elements
+  return document.querySelectorAll(selector);
+}
 
-  btn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    localStorage.setItem('gl_theme', isDark ? 'dark' : 'light');
-    btn.setAttribute('aria-pressed', String(isDark));
+//navbar active link
+function highlightActiveNav() {
+  const currentPage = (
+    location.pathname.split("/").pop() || "index.html"
+  ).toLowerCase();
+
+  $all("nav a[data-page]").forEach((link) => {
+    if (link.getAttribute("data-page") === currentPage) {
+      link.classList.add("active");
+    }
   });
 }
 
-/* ---------- Cart Counter Demo ---------- */
+//cart-demo
+const CART_KEY = "gl_cart_count";
+
 function getCartCount() {
-  return Number(localStorage.getItem('gl_cart_count') || '0');
+  return Number(localStorage.getItem(CART_KEY) || "0");
 }
+
 function setCartCount(count) {
-  localStorage.setItem('gl_cart_count', String(count));
-  const el = document.getElementById('cartCount');
-  if (el) el.textContent = String(count);
+  localStorage.setItem(CART_KEY, String(count));
+
+  const badge = $("#cartCount");
+  if (badge) badge.textContent = String(count);
 }
-function setupCart() {
-  // Initialize badge on every page
+
+function setupCartButtons() {
+  // Always show current cart count on page load
   setCartCount(getCartCount());
 
-  // Attach add-to-cart buttons if they exist on the page
-  document.querySelectorAll('[data-add-to-cart]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const current = getCartCount();
-      setCartCount(current + 1);
-      btn.textContent = 'Added ✓';
-      setTimeout(() => (btn.textContent = 'Add to Cart'), 900);
+  $all("[data-add-to-cart]").forEach((button) => {
+    const originalText = button.textContent; // safer than hard-coding "Add to Cart"
+
+    button.addEventListener("click", () => {
+      setCartCount(getCartCount() + 1);
+
+      // visual feedback
+      button.textContent = "Added ✓";
+      setTimeout(() => {
+        button.textContent = originalText;
+      }, 900);
     });
   });
 }
 
-/* ---------- Home Page: Featured Products Injection ---------- */
+//inject products if #featuredProducts exists
 function renderFeaturedProducts() {
-  const mount = document.getElementById('featuredProducts');
-  if (!mount) return; // only on Home
+  const mount = $("#featuredProducts");
+  if (!mount) return; // Not the Home page (or container removed)
 
-  // Picking 3 products for the home page 
   const featured = PRODUCTS.slice(0, 3);
 
-  const html = featured.map(p => `
-    <article class="card product">
-      <img src="${p.image}" alt="${p.name}">
-      <div class="chip" aria-label="Tags">${p.tags.join(' • ')}</div>
-      <h3>${p.name}</h3>
-      <div class="price-row">
-        <span class="price-now">${formatNPR(p.priceNow)}</span>
-        <span class="price-was">${formatNPR(p.priceWas)}</span>
-        <span class="muted">(Save ${formatNPR(p.priceWas - p.priceNow)})</span>
-      </div>
-      <p class="muted">${p.short}</p>
-      <div class="product-actions">
-        <button class="btn primary" data-add-to-cart="true">Add to Cart</button>
-        <a class="btn" href="products.html#${p.id}">View</a>
-      </div>
-    </article>
-  `).join('');
+  mount.innerHTML = featured
+    .map((p) => {
+      const save = p.priceWas - p.priceNow;
 
-  mount.innerHTML = html;
+      return `
+        <article class="card product reveal">
+          <img src="${p.image}" alt="${p.name}">
+          <div class="chip" aria-label="Tags">${p.tags.join(" • ")}</div>
+
+          <h3>${p.name}</h3>
+
+          <div class="price-row">
+            <span class="price-now">${formatNPR(p.priceNow)}</span>
+            <span class="price-was">${formatNPR(p.priceWas)}</span>
+            <span class="muted">(Save ${formatNPR(save)})</span>
+          </div>
+
+          <p class="muted">${p.short}</p>
+
+          <div class="product-actions">
+            <button class="btn primary" data-add-to-cart="true" type="button">Add to Cart</button>
+            <a class="btn" href="products.html#${p.id}">View</a>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
 }
 
-/* ---------- Active Link Highlight ---------- */
-function markActiveNav() {
-  const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  document.querySelectorAll('nav a[data-page]').forEach(a => {
-    if (a.getAttribute('data-page') === path) a.classList.add('active');
-  });
-}
-
-/* ---------- Run on page load ---------- */
-document.addEventListener('DOMContentLoaded', () => {
-  markActiveNav();
-  setupThemeToggle();
-  setupCart();
+//start-ups
+document.addEventListener("DOMContentLoaded", () => {
+  highlightActiveNav();
   renderFeaturedProducts();
+  setupCartButtons();
 });

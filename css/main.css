@@ -1,13 +1,3 @@
-/* =========================================================
-   GREENLIVING STORE — Global Stylesheet (external CSS)
-   File: css/main.css
-   Purpose: Shared site-wide styling for consistency (layout, nav, cards, etc.)
-   Notes:
-   - External CSS is used for reusability and maintainability across pages.
-   - Internal CSS (per page) is used for page-specific tweaks.
-   - Inline CSS is used for one-off exceptions (e.g., a single badge).
-   ========================================================= */
-
 /*Basic reset and text  */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
@@ -218,13 +208,3 @@ footer.site-footer {
 footer .footer-row { display: flex; gap: 1rem; justify-content: space-between; flex-wrap: wrap; }
 .small { font-size: 0.9rem; }
 
-/* Dark mode applied when JS adds .dark class to body */
-body.dark { background: #0b1220; color: #e5e7eb; }
-body.dark header.site-header { background: rgba(17,24,39,0.88); border-bottom-color: #263041; }
-body.dark .card, body.dark table { background: #111827; border-color: #263041; }
-body.dark nav a { color: #e5e7eb; }
-body.dark nav a:hover { background: #1f2937; }
-body.dark nav a.active { background: #0f172a; }
-body.dark input, body.dark select, body.dark textarea { background: #0b1220; color: #e5e7eb; border-color: #263041; }
-body.dark th { background: #0f172a; }
-body.dark .muted, body.dark footer.site-footer { color: #9ca3af; }
