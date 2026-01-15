@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--meta tags-->
+  <!--meta tags and meta data-->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- metadata -->
   <title>GreenLiving Store — Home</title>
   <meta name="description" content="Eco-friendly products and tips for a sustainable lifestyle. An e-commerce website.">
   <meta name="author" content="Student Group">
@@ -132,14 +130,13 @@
 
   <!-- internal css -->
   <style>
-    /* messing with spacing for the hero section list*/
+    /* managing spacing for hero section list*/
     .hero ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
     .hero li { margin: 0.25rem 0; }
   </style>
 
-  <!--Updates the little number showing how many items are in the cart -->
   <script>
-    // Internal JS snippet: update KPI using the shared cart badge
+    // Internal JS snippet
     document.addEventListener('DOMContentLoaded', function () {
       const cart = document.getElementById('cartCount');
       const kpi2 = document.getElementById('kpi2');

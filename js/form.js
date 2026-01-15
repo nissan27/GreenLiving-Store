@@ -1,99 +1,100 @@
-'use strict';
+"use strict";
 
-/* ---------- Validation Helpers ---------- */
+/* validation */
 function isEmail(value) {
-  // Simple email pattern suitable for coursework demos
+  // email validation pattern
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value).trim());
 }
 
 function setFieldError(field, message) {
-  field.classList.add('field-error');
-  const errorEl = field.parentElement.querySelector('.error-text');
+  field.classList.add("field-error");
+  const errorEl = field.parentElement.querySelector(".error-text");
   if (errorEl) errorEl.textContent = message;
 }
 
 function clearFieldError(field) {
-  field.classList.remove('field-error');
-  const errorEl = field.parentElement.querySelector('.error-text');
-  if (errorEl) errorEl.textContent = '';
+  field.classList.remove("field-error");
+  const errorEl = field.parentElement.querySelector(".error-text");
+  if (errorEl) errorEl.textContent = "";
 }
 
-/* ---------- Main Validation ---------- */
+/* main validation */
 function validateContactForm(form) {
   let ok = true;
 
-  const name = form.querySelector('#fullName');
-  const email = form.querySelector('#email');
-  const phone = form.querySelector('#phone');
-  const topic = form.querySelector('#topic');
-  const message = form.querySelector('#message');
-  const consent = form.querySelector('#consent');
+  const name = form.querySelector("#fullName");
+  const email = form.querySelector("#email");
+  const phone = form.querySelector("#phone");
+  const topic = form.querySelector("#topic");
+  const message = form.querySelector("#message");
+  const consent = form.querySelector("#consent");
 
   // Clear previous errors
   [name, email, phone, topic, message].forEach(clearFieldError);
 
-  // Full name
+  // name
   if (!name.value.trim() || name.value.trim().length < 3) {
-    setFieldError(name, 'Please enter your full name (min 3 characters).');
+    setFieldError(name, "Please enter your full name (min 3 characters).");
     ok = false;
   }
 
-  // Email
+  // email
   if (!isEmail(email.value)) {
-    setFieldError(email, 'Please enter a valid email address.');
+    setFieldError(email, "Please enter a valid email address.");
     ok = false;
   }
 
-  // Phone (optional, but validate if present)
+  // phone (optional field)
   if (phone.value.trim() && !/^\+?[0-9\-\s]{7,15}$/.test(phone.value.trim())) {
-    setFieldError(phone, 'Phone should be 7–15 digits (you may include +, spaces, or hyphens).');
+    setFieldError(
+      phone,
+      "Phone should be 7–15 digits (you may include +, spaces, or hyphens)."
+    );
     ok = false;
   }
 
-  // Topic
+  // topic
   if (!topic.value) {
-    setFieldError(topic, 'Please select a topic.');
+    setFieldError(topic, "Please select a topic.");
     ok = false;
   }
 
-  // Message
+  // message
   if (!message.value.trim() || message.value.trim().length < 10) {
-    setFieldError(message, 'Message should be at least 10 characters.');
+    setFieldError(message, "Message should be at least 10 characters.");
     ok = false;
   }
 
   // Consent checkbox (required)
-  const consentError = form.querySelector('#consentError');
+  const consentError = form.querySelector("#consentError");
   if (!consent.checked) {
-    consentError.textContent = 'Please agree to be contacted back.';
+    consentError.textContent = "Please agree to be contacted back.";
     ok = false;
   } else {
-    consentError.textContent = '';
+    consentError.textContent = "";
   }
 
   return ok;
 }
 
-/* ---------- Setup ---------- */
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('contactForm');
+/* setup */
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault(); // demo: prevent actual navigation
 
-    const success = document.getElementById('formSuccess');
+    const success = document.getElementById("formSuccess");
     success.hidden = true;
 
     if (validateContactForm(form)) {
-      // Demonstrate dynamic content update:
-      // - Show a success message
-      // - Reset form fields
+      //  show success message and reset form fields
       success.hidden = false;
       form.reset();
 
-      // Scroll to the success message for better UX
-      success.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // scroll to success message
+      success.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
 });

@@ -37,12 +37,10 @@ function formatNPR(amount) {
 }
 
 function $(selector) {
-  // shorthand helper for selecting one element
   return document.querySelector(selector);
 }
 
 function $all(selector) {
-  // shorthand helper for selecting multiple elements
   return document.querySelectorAll(selector);
 }
 
@@ -74,7 +72,7 @@ function setCartCount(count) {
 }
 
 function setupCartButtons() {
-  // Always show current cart count on page load
+  // showing current cart count on page load
   setCartCount(getCartCount());
 
   $all("[data-add-to-cart]").forEach((button) => {
@@ -92,7 +90,7 @@ function setupCartButtons() {
   });
 }
 
-//inject products if #featuredProducts exists
+//inject to products if #featuredProducts exists
 function renderFeaturedProducts() {
   const mount = $("#featuredProducts");
   if (!mount) return; // Not the Home page (or container removed)
