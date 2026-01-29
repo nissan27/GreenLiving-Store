@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal portfolio for the GreenLiving Store project." />
+  <title>Portfolio | GreenLiving Store</title>
+
+  <!-- External CSS (site-wide consistency) -->
+  <link rel="stylesheet" href="css/main.css" />
+
+  <!-- Internal CSS (page-specific tweaks for portfolio layout only) -->
+  <style>
+    /* Page-specific: portfolio hero spacing and responsive layout */
+    .portfolio-wrap{
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+    @media (max-width: 850px){
+      .portfolio-wrap{ grid-template-columns: 1fr; }
+    }
+
+    .profile-card{
+      text-align: center;
+      position: sticky;
+      top: 92px; /* sits below sticky navbar */
+    }
+    @media (max-width: 850px){
+      .profile-card{ position: static; }
+    }
+
+    .profile-photo{
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(34,197,94,0.75);
+      box-shadow: 0 18px 40px rgba(2,6,23,0.14);
+      margin-bottom: 0.8rem;
+    }
+
+    .role-badge{
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(2,6,23,0.10);
+      background: linear-gradient(135deg, rgba(14,165,233,0.16), rgba(34,197,94,0.14), rgba(168,85,247,0.12));
+      margin: 0.35rem 0 0.9rem;
+    }
+
+    .pill-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 0.9rem;
+    }
+
+    .skill-pill{
+      border-radius: 999px;
+      border: 1px solid rgba(2,6,23,0.10);
+      padding: 0.35rem 0.65rem;
+      background: rgba(255,255,255,0.75);
+      font-size: 0.92rem;
+    }
+
+    /* Small button for page-only */
+    .btn.small{
+      padding: 0.35rem 0.75rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="GreenLiving logo" />
+        <strong>GreenLiving Store</strong>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" data-page="index.html"><span class="nav-ico">🏡</span> Home</a></li>
+          <li><a href="products.html" data-page="products.html"><span class="nav-ico">🛍️</span> Products</a></li>
+          <li><a href="blog.html" data-page="blog.html"><span class="nav-ico">📝</span> Blog</a></li>
+          <li><a href="research.html" data-page="research.html"><span class="nav-ico">🔎</span> Research</a></li>
+          <li><a href="portfolio.html" data-page="portfolio.html" class="active"><span class="nav-ico">👤</span> Portfolio</a></li>
+          <li><a href="about.html" data-page="about.html"><span class="nav-ico">👥</span> About Us</a></li>
+          <li><a href="contact.html" data-page="contact.html"><span class="nav-ico">✉️</span> Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Cart badge (optional if you use it site-wide) -->
+      <div class="chip" aria-label="Cart count">
+        🧺 Cart: <span id="cartCount">0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 1.5rem 0;">
+    <!-- Page title -->
+    <section class="card" style="margin-bottom: 1rem;">
+      <h1 style="margin: 0;">Personal Portfolio</h1>
+      <p class="muted" style="margin: 0.35rem 0 0;">
+        A single-person portfolio page showing role, skills, and education for coursework.
+      </p>
+    </section>
+
+    <section class="portfolio-wrap">
+      <!-- Left: Profile card -->
+      <article class="card profile-card">
+        <img class="profile-photo" src="images/team_1.jpg" alt="Profile photo of Nishan Neupane" />
+        <h2 style="margin: 0.2rem 0 0;">Nishan Neupane</h2>
+
+        <div class="role-badge" aria-label="Role">
+          ⭐ Front-End Developer & Geomatics Engineer
+        </div>
+
+        <p class="muted" style="margin: 0.2rem 0 0.9rem;">
+          Passionate about building clean, interactive websites and working with geospatial data.
+        </p>
+
+        <div class="pill-row" aria-label="Quick skills">
+          <span class="skill-pill">HTML5</span>
+          <span class="skill-pill">CSS3</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">UI/UX</span>
+          <span class="skill-pill">Git (Basics)</span>
+        </div>
+
+        <div style="margin-top: 1rem;">
+          <a class="btn primary small" href="contact.html">Contact Me</a>
+          <a class="btn small" href="products.html">View Products</a>
+        </div>
+      </article>
+
+      <!-- Right: Details -->
+      <div class="grid grid-2">
+        <section class="card">
+          <h3 style="margin-top:0;">Role in the Project</h3>
+          <p class="muted">
+            Designed the website structure, built reusable components (navbar, product cards),
+            implemented JavaScript interactivity (cart counter, active navigation, toast alerts),
+            and ensured consistent styling and responsiveness across all pages.
+          </p>
+        </section>
+
+        <section class="card">
+          <h3 style="margin-top:0;">Education</h3>
+          <table aria-label="Education table">
+            <thead>
+              <tr>
+                <th>Qualification</th>
+                <th>Institution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>B.E. Geomatics Engineering</td>
+                <td>Kathmandu University, Nepal</td>
+              </tr>
+              <tr>
+                <td>Web Development Coursework</td>
+                <td>London Metropolitan University</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="card">
+          <h3 style="margin-top:0;">Technical Skills</h3>
+          <ul>
+            <li><strong>Front-end:</strong> HTML5, CSS3, JavaScript</li>
+            <li><strong>Interactivity:</strong> DOM Manipulation, Events, localStorage</li>
+            <li><strong>Design:</strong> Responsive Layouts, Accessibility Basics</li>
+            <li><strong>Tools:</strong> VS Code, Figma (Wireframes), Git (Basics)</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h3 style="margin-top:0;">Highlights</h3>
+          <ul>
+            <li>Built a functional cart counter with persistent storage</li>
+            <li>Implemented toast notifications for better UX</li>
+            <li>Designed a colourful UI with consistent navigation</li>
+            <li>Maintained clean folder structure and commented code</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <!-- Toast / Alert Slider -->
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+      <span id="toastMsg">Success</span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>
+        <strong>GreenLiving Store</strong><br />
+        <span class="muted small">Sustainable lifestyle products • Coursework project</span>
+      </div>
+      <div class="small muted">
+        © 2026 GreenLiving Store • Portfolio Page
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS (keeps cart badge + active nav consistent) -->
+  <script src="js/main.js"></script>
+</body>
+</html>
