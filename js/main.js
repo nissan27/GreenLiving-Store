@@ -67,23 +67,37 @@ function getCartCount() {
 
 function setCartCount(count) {
   localStorage.setItem(CART_KEY, String(count));
-
   const badge = $("#cartCount");
   if (badge) badge.textContent = String(count);
+  // updates quick stats count
+  const kpi = document.getElementById("kpi2");
+  if (kpi) kpi.textContent = String(count);
+}
+
+//reset button function
+function setupResetCartButton() {
+  const resetBtn = document.getElementById("resetCartBtn");
+  if (!resetBtn) return;
+
+  resetBtn.addEventListener("click", () => {
+    setCartCount(0);
+    showToast("🗑️ Cart has been reset");
+  });
 }
 
 /* ---------- Toast / Alert Slider ---------- */
 let toastTimer = null;
 
-function showToast(message) {
+function showToast(message, type) {
   const toast = document.getElementById("toast");
   const toastMsg = document.getElementById("toastMsg");
-
   // If the toast HTML is missing on this page, do nothing
   if (!toast || !toastMsg) return;
 
-  toastMsg.textContent = message;
+  toast.classList.remove("success");
+  if (type === "success") toast.classList.add("success");
 
+  toastMsg.textContent = message;
   // show (CSS class makes it slide in)
   toast.classList.add("show");
 
@@ -93,7 +107,24 @@ function showToast(message) {
     toast.classList.remove("show");
   }, 1800);
 }
+/* ---------- Theme Toggle ---------- */
+function setupThemeToggle() {
+  const btn = document.getElementById("themeToggle");
+  if (!btn) return;
 
+  // Persist user preference
+  const saved = localStorage.getItem("gl_theme");
+  if (saved === "dark") document.body.classList.add("dark");
+
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    const isDark = document.body.classList.contains("dark");
+    localStorage.setItem("gl_theme", isDark ? "dark" : "light");
+    btn.setAttribute("aria-pressed", String(isDark));
+  });
+}
+
+/* ---------- Cart Functions ---------- */
 function setupCartButtons() {
   // showing current cart count on page load
   setCartCount(getCartCount());
@@ -105,7 +136,7 @@ function setupCartButtons() {
       const newCount = getCartCount() + 1;
       setCartCount(newCount);
 
-      showToast("✅ Added to cart successfully!");
+      showToast("✅ Added to cart successfully!", "success");
       // visual feedback
       button.textContent = "Added ✓";
       setTimeout(() => {
@@ -156,4 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
   highlightActiveNav();
   renderFeaturedProducts();
   setupCartButtons();
+  setupResetCartButton();
+  setupThemeToggle();
 });

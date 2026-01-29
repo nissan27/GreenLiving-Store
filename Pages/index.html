@@ -4,9 +4,9 @@
   <!--meta tags and meta data-->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GreenLiving Store — Home</title>
-  <meta name="description" content="Eco-friendly products and tips for a sustainable lifestyle. An e-commerce website.">
-  <meta name="author" content="Student Group">
+  <title>Home</title>
+  <meta name="description" content="index page">
+  <meta name="author" content="group">
 
   <!-- external css -->
   <link rel="stylesheet" href="../css/main.css">
@@ -27,7 +27,9 @@
           <li><a href="blog.html" data-page="blog.html">Blog</a></li>
           <li><a href="research.html" data-page="research.html">Research</a></li>
           <li><a href="about.html" data-page="about.html">About Us</a></li>
-          <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+
+          <!-- Theme toggle ---->
+          <li><button class="btn" id="themeToggle" aria-pressed="false" type="button">Toggle theme</button></li>
 
           <!-- cart and cart-count -->
           <li>
@@ -89,6 +91,10 @@
               <div class="card">
                 <p class="kpi" id="kpi2">0</p>
                 <p class="muted" style="margin:0;">Items in your cart</p>
+                <!-- Reset Cart Button -->
+                <button id="resetCartBtn" class="btn small" type="button">
+                Reset Cart
+                </button>
               </div>
             </div>
           </div>

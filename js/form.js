@@ -48,7 +48,7 @@ function validateContactForm(form) {
   if (phone.value.trim() && !/^\+?[0-9\-\s]{7,15}$/.test(phone.value.trim())) {
     setFieldError(
       phone,
-      "Phone should be 7–15 digits (you may include +, spaces, or hyphens)."
+      "Phone should be 7-15 digits (you may include +, spaces, or hyphens)."
     );
     ok = false;
   }

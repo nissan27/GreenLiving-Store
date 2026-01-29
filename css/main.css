@@ -222,10 +222,7 @@ footer .footer-row { display: flex; gap: 1rem; justify-content: space-between; f
   width: 30px;
 }
 
-/* =========================================================
-   Toast / Alert Slider
-   Slides in from the right and auto-hides
-   ========================================================= */
+/* Toast / Alert Slider Slides in from the right and auto-hides*/
    .toast{
     position: fixed;
     top: 88px;              /* below navbar */
@@ -236,7 +233,26 @@ footer .footer-row { display: flex; gap: 1rem; justify-content: space-between; f
     padding: 12px 14px;
     border-radius: 14px;
   
-    background: rgba(16, 185, 129, 0.95); /* green success */
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    color: #ffffff;
+    box-shadow: 0 18px 40px rgba(2,6,23,0.18);
+  
+    transform: translateX(120%);
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+
+  .toast.success{
+    position: fixed;
+    top: 88px;              /* below navbar */
+    right: 16px;
+    z-index: 9999;
+  
+    max-width: 320px;
+    padding: 12px 14px;
+    border-radius: 14px;
+  
+    background: linear-gradient(135deg, #22c55e, #16a34a);
     color: #ffffff;
     box-shadow: 0 18px 40px rgba(2,6,23,0.18);
   
@@ -250,3 +266,51 @@ footer .footer-row { display: flex; gap: 1rem; justify-content: space-between; f
     transform: translateX(0);
     opacity: 1;
   }
+
+  /* ---------- Theme Toggle (dark mode) ---------- */
+body.dark { background: #0b1220; color: #e5e7eb; }
+body.dark header.site-header { background: rgba(17,24,39,0.88); border-bottom-color: #263041; }
+body.dark .card, body.dark table { background: #111827; border-color: #263041; }
+body.dark nav a { color: #e5e7eb; }
+body.dark nav a:hover { background: #1f2937; }
+body.dark nav a.active { background: #0f172a; }
+body.dark input, body.dark select, body.dark textarea { background: #0b1220; color: #e5e7eb; border-color: #263041; }
+body.dark th { background: #0f172a; }
+body.dark .muted, body.dark footer.site-footer { color: #9ca3af; }
+
+body.dark .hero-card{
+  background: rgba(17, 24, 39, 0.75);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.dark .hero-card h1,
+body.dark .hero-card h2,
+body.dark .hero-card h3,
+body.dark .hero-card p,
+body.dark .hero-card li{
+  color: #e5e7eb;
+}
+
+body.dark .hero-card .muted{
+  color: #9ca3af;
+}
+
+/* cards inside hero ("What's inside this website?") */
+body.dark .hero-card .card{
+  background: rgba(2, 6, 23, 0.45) ;
+  border-color: rgba(255, 255, 255, 0.10);
+}
+/* hero image border */
+body.dark .hero-card .hero-img{
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* reset button in quick stats */
+.btn.small{
+  background-color: #008CBA;
+  color: white;
+  margin-top: 1rem;
+  padding: 0.5rem 2.3rem;
+  font-size: 0.95rem;
+}
+
