@@ -74,12 +74,15 @@
         border-radius: 999px;
         font-size: 0.85rem;
       }
+
+        /* group fields into two columns on larger screens */
+        .two-col { display:grid; gap:1rem; grid-template-columns: 1fr 1fr; }
+        @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
     </style>
 
     <section class="grid grid-3">
       <!-- Member 1 -->
       <article class="card">
-        <img class="pfp" src="../images/team_1.jpg" alt="Team member 1 photo placeholder">
         <h2 style="margin-bottom:0;">Member 1:<br><b>Nishan Neupane</b></h2>
         <p class="muted" style="margin-top:0.2rem;">Role: JavaScript Developer</p>
 
@@ -93,12 +96,13 @@
 
         <h3>Education</h3>
         <p class="muted">BSc (Hons) Computing with Artificial Intelligence — Islington College</p>
-
+        <div class="row">
+          <a class="btn portfolio" href="#">Portfolio</a>
+        </div>
       </article>
 
       <!-- Member 2 -->
       <article class="card">
-        <img class="pfp" src="images/team_2.jpg" alt="Team member 2 photo placeholder">
         <h2 style="margin-bottom:0;">Member 2:<br><b>Aabhushan Shrestha</b></h2>
         <p class="muted" style="margin-top:0.2rem;">Role: Form & Layout Designer</p>
 
@@ -112,11 +116,13 @@
 
         <h3>Education</h3>
         <p class="muted">BSc (Hons) Computing with Artificial Intelligence — Islington College</p>
+        <div class="row">
+          <a class="btn portfolio" href="#">Portfolio</a>
+        </div>
       </article>
 
       <!-- Member 3 -->
       <article class="card">
-        <img class="pfp" src="images/team_3.jpg" alt="Team member 3 photo placeholder">
         <h2 style="margin-bottom:0;">Member 3:<br><b>Ujjwol Gautam</b></h2>
         <p class="muted" style="margin-top:0.2rem;">Role: Researcher</p>
 
@@ -130,11 +136,13 @@
 
         <h3>Education</h3>
         <p class="muted">BSc (Hons) Computing with Artificial Intelligence — Islington College</p>
+        <div class="row">
+          <a class="btn portfolio" href="#">Portfolio</a>
+        </div>
       </article>
 
       <!-- Member 4 -->
       <article class="card">
-        <img class="pfp" src="images/team_3.jpg" alt="Team member 4 photo placeholder">
         <h2 style="margin-bottom:0;">Member 4:<br><b>Pratha Kafle</b></h2>
         <p class="muted" style="margin-top:0.2rem;">Role: Navbar & Front-end Designer</p>
 
@@ -148,11 +156,13 @@
 
         <h3>Education</h3>
         <p class="muted">BSc (Hons) Computing with Artificial Intelligence — Islington College</p>
+        <div class="row">
+          <a class="btn portfolio" href="#">Portfolio</a>
+        </div>
       </article>
 
       <!-- Member 5 -->
       <article class="card">
-        <img class="pfp" src="images/team_3.jpg" alt="Team member 5 photo placeholder">
         <h2 style="margin-bottom:0;">Member 5:<br><b>Bibisha Maharjan</b></h2>
         <p class="muted" style="margin-top:0.2rem;">Role: Blog & Product Designer</p>
 
@@ -166,18 +176,82 @@
 
         <h3>Education</h3>
         <p class="muted">BSc (Hons) Computing with Artificial Intelligence — Islington College</p>
+        <div class="row">
+          <a class="btn portfolio" href="#">Portfolio</a>
+        </div>
       </article>
     </section>
 
+    <!-- Success message is revealed on valid submit -->
+    <div id="formSuccess" class="success" hidden>
+      ✅ Thank you! Your message was validated and submitted in this demo.
+    </div>
+       
+    <!-- required html tags -->
     <section class="card" style="margin-top:1.25rem;">
-      <h2>Our mission</h2>
-      <p class="muted">
-        We aim to encourage sustainable habits through simple, affordable product choices and good information.
-        This demo website focuses on clean structure, consistent navigation, and basic JavaScript interactivity.
-      </p>
+      <h2>Contact us</h2>
+      <form id="contactForm" novalidate>
+
+        <div class="two-col">
+          <div>
+            <label for="fullName">Full Name *</label>
+            <input id="fullName" name="fullName" type="text" placeholder="e.g., Sita Sharma" required>
+            <div class="error-text" aria-live="polite"></div>
+          </div>
+
+          <div>
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" placeholder="e.g., sita@example.com" required>
+            <div class="error-text" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" placeholder="+977-98XXXXXXXX">
+            <div class="error-text" aria-live="polite"></div>
+          </div>
+
+          <div>
+            <label for="topic">Topic *</label>
+            <select id="topic" name="topic" required>
+              <option value="">-- Choose a topic --</option>
+              <option value="product">Product question</option>
+              <option value="bulk">Bulk order</option>
+              <option value="delivery">Delivery</option>
+              <option value="feedback">Feedback</option>
+            </select>
+            <div class="error-text" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div>
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+          <div class="help">Minimum 10 characters.</div>
+          <div class="error-text" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label>
+            <input id="consent" class="consent" type="checkbox">
+            I agree to be contacted back. *
+          </label>
+          <div id="consentError" class="error-text" aria-live="polite"></div>
+        </div>
+
+        <div class="row">
+          <button class="btn primary" type="submit">Submit</button>
+          <button class="btn" type="reset">Reset</button>
+        </div>
+      </form>
     </section>
 
   </main>
+  <!-- page specific js -->
+  <script src="../js/form.js"></script>
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-row">
@@ -191,7 +265,6 @@
       </div>
     </div>
   </footer>
-
   <!-- External JavaScript -->
   <script src="../js/main.js"></script>
 </body>

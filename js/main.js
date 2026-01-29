@@ -61,7 +61,8 @@ function highlightActiveNav() {
 const CART_KEY = "gl_cart_count";
 
 function getCartCount() {
-  return Number(localStorage.getItem(CART_KEY) || "0");
+  const saved = localStorage.getItem(CART_KEY);
+  return saved === null ? 0 : Number(saved);
 }
 
 function setCartCount(count) {
@@ -69,6 +70,28 @@ function setCartCount(count) {
 
   const badge = $("#cartCount");
   if (badge) badge.textContent = String(count);
+}
+
+/* ---------- Toast / Alert Slider ---------- */
+let toastTimer = null;
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  const toastMsg = document.getElementById("toastMsg");
+
+  // If the toast HTML is missing on this page, do nothing
+  if (!toast || !toastMsg) return;
+
+  toastMsg.textContent = message;
+
+  // show (CSS class makes it slide in)
+  toast.classList.add("show");
+
+  // auto-hide after 1.8 seconds
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 1800);
 }
 
 function setupCartButtons() {
@@ -79,8 +102,10 @@ function setupCartButtons() {
     const originalText = button.textContent; // safer than hard-coding "Add to Cart"
 
     button.addEventListener("click", () => {
-      setCartCount(getCartCount() + 1);
+      const newCount = getCartCount() + 1;
+      setCartCount(newCount);
 
+      showToast("✅ Added to cart successfully!");
       // visual feedback
       button.textContent = "Added ✓";
       setTimeout(() => {
