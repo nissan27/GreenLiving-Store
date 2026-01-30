@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aabhushan Shrestha - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #F70000 0%, #0000F7 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        header {
+            border-bottom: 3px solid #2a2a2a;
+            padding-bottom: 30px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 44.8px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .subtitle {
+            font-size: 17.6px;
+            color: #6a6a6a;
+            font-weight: 400;
+        }
+
+        section {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2a2a2a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: #2a2a2a;
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background: #2a2a2a;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: #1a1a1a;
+        }
+
+        .info-block {
+            padding: 25px;
+            border-left: 4px solid #2a2a2a;
+            padding-left: 25px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .info-block + .info-block {
+            margin-top: 20px;
+        }
+
+        .info-block p {
+            font-size: 17.6px;
+            color: #2a2a2a;
+            margin-bottom: 8px;
+        }
+
+        .label {
+            font-weight: 700;
+            color: #1a1a1a;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            text-align: center;
+            color: #6a6a6a;
+            font-size: 14.4px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 35.2px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Aabhushan Shrestha</h1>
+            <p class="subtitle">Computing with AI Student</p>
+        </header>
+
+        <section>
+            <h2>About Me</h2>
+            <div class="info-block">
+                <p>Bachelors 1st year</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">HTML</div>
+                <div class="skill-item">CSS</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">Python</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="info-block">
+                <p><span class="label">Course:</span> BSc. (Hons) Computing with AI</p>
+                <p><span class="label">Institution:</span> Islington College</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="info-block">
+                <p><span class="label">Project Name:</span> <strong>GreenLiving</strong></p>
+                <p>GreenLiving is an eco-friendly products website designed to promote sustainable living and environmental consciousness. The platform features a curated collection of environmentally responsible products, from biodegradable household items to renewable energy solutions. The website aims to make it easier for consumers to discover and purchase sustainable alternatives while reducing their carbon footprint and contributing to a healthier planet.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Contact</h2>
+            <div class="info-block">
+                <p><span class="label">Email:</span> placeholder@example.com</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Aabhushan Shrestha. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
