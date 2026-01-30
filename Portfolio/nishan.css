@@ -1,129 +1,164 @@
-/* =====================================================
-   Base Styles
-   ===================================================== */
-
-   * {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
   body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #f8fafc;
-    color: #1e293b;
-    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f0ff;          /* light violet background */
+    color: #2e1065;               /* dark violet text */
   }
   
-  /* =====================================================
-     Hero Section
-     ===================================================== */
+  /* page wrapper */
+  .wrap {
+    max-width: 1100px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
   
-  .hero {
-    min-height: 100vh;
+  /* card base */
+  .card {
+    background: #ffffff;
+    border: 1px solid #dcd6fe;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  
+  /* header / personal details */
+  .header-card {
+    background: #ede9fe;
+  }
+  
+  /* top row */
+  .top-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  
+  /* initials block */
+  .initials {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    background: #7c3aed;          /* darker violet */
+    color: #ffffff;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #0ea5e9, #22c55e);
-    color: #ffffff;
-    text-align: center;
-    padding: 32px;
   }
   
-  .hero img {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    border: 4px solid #ffffff;
-    object-fit: cover;
-    margin-bottom: 16px;
-  }
-  
-  .hero h1 {
-    font-size: 38px;
+  h1 {
+    font-size: 24px;
   }
   
   .subtitle {
-    font-weight: 600;
+    font-size: 14px;
+    color: #4c1d95;
+  }
+  
+  /* role chips */
+  .chips {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+  .chip {
+    background: #ddd6fe;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #4c1d95;
+  }
+  
+  /* summary */
+  .summary {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* mini info grid */
+  .mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+  
+  .mini {
+    background: #f5f3ff;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  
+  .mini-k {
+    font-size: 12px;
+    color: #6d28d9;
+  }
+  
+  .mini-v {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  /* section titles */
+  .section-card h2 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #4c1d95;
+  }
+  
+  /* skills */
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  
+  .skill {
+    background: #ede9fe;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 13px;
+    color: #2e1065;
+  }
+  
+  /* education */
+  .edu-box {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edu-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #7c3aed;
     margin-top: 6px;
   }
   
-  .tagline {
-    max-width: 600px;
-    margin: 16px auto 0;
-    font-size: 16px;
-    opacity: 0.95;
+  .edu-title {
+    font-weight: bold;
   }
   
-  /* =====================================================
-     Sections
-     ===================================================== */
-  
-  .section {
-    max-width: 1000px;
-    margin: 48px auto;
-    padding: 0 24px;
-  }
-  
-  .section h2 {
-    font-size: 29px;
-    margin-bottom: 16px;
-    color: #0f172a;
-  }
-  
-  /* =====================================================
-     Skills
-     ===================================================== */
-  
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 16px;
-  }
-  
-  .skill-card {
-    background: #ffffff;
-    padding: 14px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.1);
-    transition: transform 0.25s ease;
-  }
-  
-  .skill-card:hover {
-    transform: translateY(-6px);
-  }
-  
-  /* =====================================================
-     Education
-     ===================================================== */
-  
-  .edu-card {
-    background: #ffffff;
-    padding: 19px;
-    border-left: 6px solid #22c55e;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.1);
-  }
-  
-  .edu-card h3 {
-    margin-bottom: 6px;
-    color: #14532d;
-  }
-  
-  .edu-card span {
+  /* highlights */
+  .bullets {
+    margin-left: 18px;
     font-size: 14px;
-    color: #64748b;
+    line-height: 1.6;
   }
   
-  /* =====================================================
-     Footer
-     ===================================================== */
-  
-  .footer {
-    background: #020617;
-    color: #cbd5f5;
+  /* footer */
+  .footerline {
     text-align: center;
-    padding: 19px;
-    margin-top: 48px;
+    font-size: 12px;
+    color: #4c1d95;
   }

@@ -3,69 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Personal portfolio of a Computing with AI student" />
+  <meta name="description" />
   <title>Nishan Neupane | Portfolio</title>
 
   <link rel="stylesheet" href="nishan.css" />
 </head>
 
 <body>
+  <main class="wrap">
 
-  <!-- ===== Hero Section ===== -->
-  <section class="hero">
-    <div class="hero-content">
-      <img src="images/profile.jpg" alt="Profile photo of Nishan Neupane">
+    <!-- personal details -->
+    <section class="card header-card">
+      <div class="top-row">
+        <div class="initials" aria-hidden="true">NN</div>
 
-      <h1>Nishan Neupane</h1>
-      <p class="subtitle">BSc (Hons) Computing with Artificial Intelligence</p>
-      <p class="tagline">
-        Aspiring software developer with interests in web technologies,
-        problem solving, and AI-driven systems.
+        <div class="title-block">
+          <h1>Nishan Neupane</h1>
+          <p class="subtitle">BSc (Hons) Computing with Artificial Intelligence</p>
+
+          <div class="chips" aria-label="Roles">
+            <span class="chip">AI Student</span>
+            <span class="chip">Front-end Learner</span>
+            <span class="chip">Problem Solver</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="summary">
+        I am currently studying Computing with Artificial Intelligence at London Metropolitan University.
+        I enjoy building clean, user-friendly web pages and learning how AI can improve everyday systems.
+        I focus on strong fundamentals, readable code, and practical project work.
       </p>
-    </div>
-  </section>
 
-  <!-- ===== About Section ===== -->
-  <section class="section about">
-    <h2>About Me</h2>
-    <p>
-      I am currently pursuing a Bachelor’s degree in Computing with Artificial Intelligence
-      at London Metropolitan University. I enjoy building clean, user-friendly web
-      applications and exploring how intelligent systems can improve everyday technology.
-    </p>
-  </section>
 
-  <!-- ===== Skills Section ===== -->
-  <section class="section skills">
-    <h2>Technical Skills</h2>
+      <div class="mini-grid" aria-label="Quick information">
+        <div class="mini">
+          <p class="mini-k">Primary Focus</p>
+          <p class="mini-v">Web Development + JavaScript</p>
+        </div>
+        <div class="mini">
+          <p class="mini-k">Secondary Interest</p>
+          <p class="mini-v">AI Fundamentals</p>
+        </div>
+        <div class="mini">
+          <p class="mini-k">Strength</p>
+          <p class="mini-v">Consistency & Problem Solving</p>
+        </div>
+        <div class="mini">
+          <p class="mini-k">Tools</p>
+          <p class="mini-v">VS Code • Git (Basics)</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="skills-grid">
-      <div class="skill-card">HTML5</div>
-      <div class="skill-card">CSS3</div>
-      <div class="skill-card">JavaScript</div>
-      <div class="skill-card">Python (Basics)</div>
-      <div class="skill-card">Problem Solving</div>
-      <div class="skill-card">Responsive Design</div>
-      <div class="skill-card">AI Fundamentals</div>
-      <div class="skill-card">Version Control (Git)</div>
-    </div>
-  </section>
+    <!-- ===== Technical Skills ===== -->
+    <section class="card section-card">
+      <h2>Technical Skills</h2>
 
-  <!-- ===== Education Section ===== -->
-  <section class="section education">
-    <h2>Education</h2>
+      <div class="skill-grid">
+        <div class="skill">HTML5</div>
+        <div class="skill">CSS3</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Responsive Layouts</div>
+        <div class="skill">DOM & Events</div>
+        <div class="skill">Form Validation</div>
+        <div class="skill">localStorage</div>
+        <div class="skill">Python (Basics)</div>
+        <div class="skill">AI Fundamentals</div>
+        <div class="skill">Git (Basics)</div>
+      </div>
+    </section>
 
-    <div class="edu-card">
-      <h3>BSc (Hons) Computing with Artificial Intelligence</h3>
-      <p>London Metropolitan University</p>
-      <span>Currently Enrolled</span>
-    </div>
-  </section>
+    <!-- ===== Education ===== -->
+    <section class="card section-card">
+      <h2>Education</h2>
 
-  <!-- ===== Footer ===== -->
-  <footer class="footer">
-    <p>© 2026 Nishan Neupane</p>
-  </footer>
+      <div class="edu-box">
+        <div class="edu-dot" aria-hidden="true"></div>
+        <div>
+          <p class="edu-title">BSc (Hons) Computing with Artificial Intelligence</p>
+          <p class="muted">London Metropolitan University</p>
+          <p class="small">Status: Ongoing</p>
+        </div>
+      </div>
+    </section>
 
+    <!--  highlights -->
+    <section class="card section-card">
+      <h2>Highlights</h2>
+      <ul class="bullets">
+        <li>Created a multi-page e-commerce website using HTML, CSS, and JavaScript.</li>
+        <li>Implemented cart counter using localStorage and toast notifications.</li>
+        <li>Worked on form validation and DOM manipulation for interactive pages.</li>
+        <li>Maintained clean folder structure, naming conventions, and code comments.</li>
+        <li>Interested in building AI-powered features in future web projects.</li>
+      </ul>
+    </section>
+
+    <!-- Footer line  -->
+    <section class="footerline">
+      <p class="small muted">© 2026 Nishan Neupane</p>
+    </section>
+
+  </main>
 </body>
 </html>
